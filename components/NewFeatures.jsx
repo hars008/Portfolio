@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "../styles";
 
 const NewFeatures = ({ imgUrl, title, url }) => (
-  <div className="flex-1 m-auto justify-center  hover:font-bold hover:scale-110 transition duration-200 ease-in-out cursor-pointer text-center flex flex-col sm:max-w-[250px] min-w-[210px]">
+  <div className="flex-1 m-auto justify-center hover:font-bold hover:scale-110 transition duration-200 ease-in-out cursor-pointer text-center flex flex-col sm:max-w-[250px] min-w-[100px]">
     <Link href={url} target="_blank">
       <div
         className={`${styles.flexCenter} w-[70px] m-auto h-[70px] rounded-[24px] bg-[#323F5D]`}

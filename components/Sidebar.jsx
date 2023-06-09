@@ -10,7 +10,7 @@ const Sidebar = () => (
     variants={navVariants}
     initial="hidden"
     whileInView="show"
-    className="px-2 py-8 h-full hidden sm:block fixed top-0 z-50"
+    className="px-3 py-8 h-full hidden sm:block fixed top-0 z-50"
   >
     <div className="  w-fit  inset-0 gradient-01 " />
     <div className="w-full h-full flex  flex-col justify-center  gap-8">

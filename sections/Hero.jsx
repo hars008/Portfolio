@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import styles from "../styles";
-import MovingComponent from "react-moving-text";
-import { slideIn, staggerContainer, textVariant } from "../utils/motion";
+import Type from "../components/TypeWrit";
+import { fadeIn, slideIn, staggerContainer, textVariant } from "../utils/motion";
 import Particle from "../components/Particle";
 const Hero = () => (
   <section className={`${styles.yPaddings} sm:pl-16 pl-6 mb-64`}>
@@ -16,41 +16,49 @@ const Hero = () => (
       viewport={{ once: false, amount: 0.25 }}
       className={`${styles.innerWidth} mx-auto flex flex-col`}
     >
-      <div className="flex justify-center  items-center flex flex-col sm:flex-row relative">
-        <motion.h1
-          variants={textVariant(0.6)}
-          className="text-[30px] text-white"
-        >
-          Hi, I am &nbsp;
-        </motion.h1>
+      <div className="md:flex xl:justify-center xl:gap-10 justify-between sm:px-5 md:px-7 lg:px-12 ">
+        <div className="flex justify-center sm:gap-1 gap-4  items-center flex-col relative">
+          <motion.h1
+            variants={textVariant(0.6)}
+            className="sm:text-[30px] text-[18px] text-white"
+          >
+            Hi There!&nbsp;
+            <span className="wave" role="img" aria-labelledby="wave">
+              👋🏻
+            </span>
+          </motion.h1>
+          <motion.h1
+            variants={textVariant(0.6)}
+            className="sm:text-[27px] text-[18px] text-white"
+          >
+            I&nbsp;am&nbsp;
+            <span className="sm:text-[36px] text-[22px] font-bold">
+              Harsh&nbsp;Bansal
+            </span>
+          </motion.h1>
 
-        <motion.h1 variants={textVariant(0.8)} className={styles.heroHeading}>
-         
-            Harsh&nbsp;
-        </motion.h1>
-        <motion.div
-          variants={textVariant(1)}
-          className="flex flex-row justify-center items-center"
-        >
-          <h1 className={styles.heroHeading}>
-            Bansal&nbsp;
-            </h1>
-        </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView={"show"}
+            variants={fadeIn("left", "tween", 0.6, 1)}
+            className="relative w-full md:-mt-[20px] -mt-[12px]"
+          >
+            <h2 className="sm:text-[20px] text-[14px] font-bold text-white text-center  py-2 mr-10">
+              <Type />
+            </h2>
+          </motion.div>
+        </div>
+        <div>
+          <motion.div
+            variants={textVariant(0.6)}
+            className="text-center xl:w-[700px] lg:w-[600px] md:w-[500px] sm:mt-4 sm:w-[490px] w-[350px] mx-auto"
+          >
+            <img src="portfolio.png" alt="clipart" />
+          </motion.div>
+        </div>
       </div>
-
       <motion.div
-        variants={slideIn("right", "tween", 1.3, 1)}
-        className="relative w-full md:-mt-[20px] -mt-[12px]"
-      >
-        <h2 className="text-[20px] text-white text-center  py-2 mr-10">
-          Full-stack developer with strong problem-solving skills,
-          committed to deliver innovative solutions and tackle complex web
-          development challenges.
-        </h2>
-      </motion.div>
-
-      <motion.div
-        variants={slideIn("right", "tween", 1.4, 1)}
+        variants={fadeIn("right", "tween", 1.0, 1)}
         className="relative w-full md:-mt-[20px] -mt-[12px]"
       >
         <AnchorLink href="#about">

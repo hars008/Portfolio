@@ -16,6 +16,7 @@ const BriefProjTwo = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
         variants={fadeIn("right", "tween", 0.2, 1)}
         className="flex-[0.95] flex justify-center flex-col"
       >
+
         <TypingText title="| Brief Introduction" />
         <TitleText title={projTitle} />
         <div className="mt-[48px] flex flex-wrap justify-between gap-[24px]">
@@ -26,7 +27,7 @@ const BriefProjTwo = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
               text={feature}
             />
           ))}
-          <div className="flex content-center justify-between w-full">
+          <div className="flex justify-between w-full">
             {Links.map((link) => (
               <NewFeatures
                 key={link.title}
@@ -54,4 +55,3 @@ const BriefProjTwo = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
 );
 
 export default BriefProjTwo;
-

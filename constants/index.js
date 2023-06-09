@@ -1,4 +1,3 @@
-
 export const exploreWorlds = [
   {
     id: "#proj-1",
@@ -25,11 +24,6 @@ export const exploreWorlds = [
     imgUrl: "/moviesverse.png",
     title: "Moviesverse",
   },
-  // {
-  //   id: "Project-6",
-  //   imgUrl: "/toDo.png",
-  //   title: "To-Do List",
-  // },
 ];
 
 export const startingFeatures = [
@@ -94,64 +88,5 @@ export const socials = [
     name: "github",
     url: "/github2.png",
     link: "https://github.com/hars008",
-  },
-];
-
-export const technologies = [
-  {
-    name: "HTML 5",
-    
-  },
-  {
-    name: "CSS 3",
-    
-  },
-  {
-    name: "JavaScript",
-    
-  },
-  {
-    name: "TypeScript",
-    
-  },
-  {
-    name: "React JS",
-    
-  },
-  {
-    name: "Redux Toolkit",
-    
-  },
-  {
-    name: "Tailwind CSS",
-    
-  },
-  {
-    name: "Node JS",
-    
-  },
-  {
-    name: "Rails",
-    
-  },
-  {
-    name: "graphql",
-    
-  },
-  {
-    name: "postgresql",
-    
-  },
-  {
-    name: "git",
-    
-  },
-  {
-    name: "figma",
-    
-  },
-  {
-    name: "docker",
-    
   },
 ];
