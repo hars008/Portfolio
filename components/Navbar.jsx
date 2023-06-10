@@ -87,7 +87,7 @@ const Navbar = () => {
                 style={{ fontSize: "26px", color: "#08c" }}
                 className="hover:scale-[1.3] transition duration-200"
               />
-              )}
+            )}
             open={visible}
             className="text-center  text-white opacity-90 !bg-gradient-to-r !to-black !from-zinc-900 "
             headerStyle={{
@@ -96,19 +96,19 @@ const Navbar = () => {
             }}
           >
             <div className=" flex flex-col sm:gap-6 gap-2 lg:gap-32 text-[16px] leading-[45.24px] text-white ">
-              <AnchorLink href="#about">
+              <AnchorLink onClick={onClose} href="#about">
                 <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
                   {" "}
                   About
                 </h3>
               </AnchorLink>
-              <AnchorLink href="#projects">
+              <AnchorLink onClick={onClose} href="#projects">
                 <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
                   {" "}
                   Projects
                 </h3>
               </AnchorLink>
-              <AnchorLink href="#contact">
+              <AnchorLink onClick={onClose} href="#contact">
                 <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
                   {" "}
                   Contact
@@ -119,6 +119,7 @@ const Navbar = () => {
                 type="button"
                 className="bg-blue-500 p-2 w-fit m-auto px-10 mt-4 rounded-lg hover:scale-110 transition duration-300 ease-in-out text-white"
                 onClick={() => {
+                  setVisible(false);
                   window.open(
                     "https://drive.google.com/file/d/1bVgUu1P8GKjGiVTII8TbEWZFa4a6ORb2/view?usp=share_link",
                   );
