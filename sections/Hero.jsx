@@ -7,7 +7,7 @@ import Type from "../components/TypeWrit";
 import { fadeIn, slideIn, staggerContainer, textVariant } from "../utils/motion";
 import Particle from "../components/Particle";
 const Hero = () => (
-  <section className={`${styles.yPaddings} sm:pl-16 pl-6 mb-64`}>
+  <section className={`${styles.yPaddings} sm:pl-16 pl-6 my-32 `}>
     <Particle />
     <motion.div
       variants={staggerContainer}
@@ -51,7 +51,7 @@ const Hero = () => (
         <div>
           <motion.div
             variants={textVariant(0.6)}
-            className="text-center xl:w-[700px] lg:w-[600px] md:w-[500px] sm:mt-4 sm:w-[490px] w-[350px] mx-auto"
+            className="text-center xl:w-[700px] lg:w-[600px] md:w-[500px] sm:mt-14 sm:w-[490px] w-[350px] mx-auto"
           >
             <img src="portfolio.png" alt="clipart" />
           </motion.div>

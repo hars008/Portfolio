@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-import styles from '../styles';
-import { exploreWorlds } from '../constants';
-import { staggerContainer } from '../utils/motion';
-import { ExploreCard, TitleText, TypingText } from '../components';
+import styles from "../styles";
+import { exploreWorlds } from "../constants";
+import { staggerContainer } from "../utils/motion";
+import { ExploreCard, TitleText, TypingText } from "../components";
 
 const Explore = () => {
-  const [active, setActive] = useState('world-2');
+  const [active, setActive] = useState("world-2");
 
   return (
     <section className={`${styles.paddings}`} id="projects">
@@ -17,14 +17,11 @@ const Explore = () => {
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         className={`${styles.innerWidth} mx-auto flex flex-col`}
       >
         <TypingText title="| My Personal Projects" textStyles="text-center" />
-        <TitleText
-          title={<>Projects Catalog</>}
-          textStyles="text-center"
-        />
+        <TitleText title={<>Projects Catalog</>} textStyles="text-center" />
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {exploreWorlds.map((world, index) => (
             <ExploreCard

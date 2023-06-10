@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { NewFeatures, StartSteps, TitleText, TypingText } from ".";
-import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import { staggerContainer, fadeIn } from "../utils/motion";
 
 const BriefProjTwo = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
   <section id={ID} className={`${styles.paddings} relative z-10`}>
@@ -16,7 +16,6 @@ const BriefProjTwo = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
         variants={fadeIn("right", "tween", 0.2, 1)}
         className="flex-[0.95] flex justify-center flex-col"
       >
-
         <TypingText title="| Brief Introduction" />
         <TitleText title={projTitle} />
         <div className="mt-[48px] flex flex-wrap justify-between gap-[24px]">
@@ -41,12 +40,12 @@ const BriefProjTwo = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
       </motion.div>
 
       <motion.div
-        variants={planetVariants("right")}
-        className={`flex-1 ${styles.flexCenter}`}
+        variants={fadeIn("left", "tween", 0.2, 1)}
+        className={`flex-1 `}
       >
         <img
           src={imgClip}
-          alt="get-started"
+          alt="project homepage"
           className="w-[90%] h-[90%] object-contain"
         />
       </motion.div>

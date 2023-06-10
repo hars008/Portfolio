@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { NewFeatures, StartSteps, TitleText, TypingText } from ".";
-import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import { staggerContainer, fadeIn } from "../utils/motion";
 
 const BriefProjOne = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
   <section id={ID} className={`${styles.paddings} relative z-10`}>
@@ -13,12 +13,12 @@ const BriefProjOne = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
       className={`${styles.innerWidth} mx-auto flex lg:flex-row flex-col-reverse gap-8`}
     >
       <motion.div
-        variants={planetVariants("left")}
+        variants={fadeIn("right", "tween", 0.2, 1)}
         className={`flex-1 ${styles.flexCenter}`}
       >
         <img
           src={imgClip}
-          alt="heading"
+          alt="project homepage"
           className="w-[90%] h-[90%] object-contain"
         />
       </motion.div>
@@ -53,4 +53,3 @@ const BriefProjOne = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
 );
 
 export default BriefProjOne;
-

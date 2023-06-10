@@ -14,7 +14,7 @@ const LineAnim = () => (
       variants={fadeIn("right", "tween", 0.2, 1)}
       className="flex-[0.95] flex justify-center flex-col"
     >
-      <div className=" w-9/12 m-auto my-16 border-b border-gray-200 " />
+      <div className=" w-9/12 m-auto my-16 border-b border-gray-500 " />
     </motion.div>
   </motion.div>
 );

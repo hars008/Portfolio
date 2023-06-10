@@ -21,9 +21,9 @@ const Navbar = () => {
     <motion.nav
       variants={navVariants}
       initial="hidden"
-      whileHover="show"
       whileInView="show"
-      className={`${styles.xPaddings} py-8 relative z-50`}
+      id="home"
+      className={`${styles.xPaddings} py-4 relative bg-black bg-opacity-20 w-full fixed top-0 z-50`}
     >
       <div className="absolute  w-fit inset-0 gradient-01" />
       <div
@@ -87,7 +87,7 @@ const Navbar = () => {
                 style={{ fontSize: "26px", color: "#08c" }}
                 className="hover:scale-[1.3] transition duration-200"
               />
-            )}
+              )}
             open={visible}
             className="text-center  text-white opacity-90 !bg-gradient-to-r !to-black !from-zinc-900 "
             headerStyle={{
