@@ -153,7 +153,7 @@ const SkillCard = () => {
               className={`${styles.innerWidth} mx-auto ${styles.flexCenter} flex-col`}
             >
               <motion.div
-                variants={fadeIn("down", "tween", 0.1, 1)}
+                variants={fadeIn("left", "tween", 0.1, 1)}
                 className="mt-[8px] font-normal sm:text-[20px] text-[16px] text-center text-secondary-white"
               >
                 <h2 className="text-2xl p-4 font-semibold text-center text-gray-800 dark:text-white md:text-3xl">
@@ -205,7 +205,7 @@ const SkillCard = () => {
               className={`${styles.innerWidth} mx-auto ${styles.flexCenter} flex-col`}
             >
               <motion.div
-                variants={fadeIn("down", "tween", 0.1, 1)}
+                variants={fadeIn("right", "tween", 0.1, 1)}
                 className="mt-[8px] font-normal sm:text-[20px] text-[16px] text-center text-secondary-white"
               >
                 <h2 className="text-2xl p-4 font-semibold text-center text-gray-800 dark:text-white md:text-3xl">

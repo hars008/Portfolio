@@ -9,6 +9,7 @@ const BriefProjOne = ({ projTitle, featuresPoints, imgClip, ID, Links }) => (
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
+      exit={{ opacity: 0 }}
       viewport={{ once: false, amount: 0.25 }}
       className={`${styles.innerWidth} mx-auto flex lg:flex-row flex-col-reverse gap-8`}
     >

@@ -58,6 +58,9 @@ const Hero = () => (
         </div>
       </div>
       <motion.div
+        initial="hidden"
+        whileInView={"show"}
+        exit={{ opacity: 0 }}
         variants={fadeIn("right", "tween", 1.0, 1)}
         className="relative w-full md:-mt-[20px] -mt-[12px]"
       >
