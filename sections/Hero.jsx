@@ -17,7 +17,7 @@ const Hero = () => (
       className={`${styles.innerWidth} mx-auto flex flex-col`}
     >
       <div className="md:flex xl:justify-center xl:gap-10 justify-between sm:px-5 md:px-7 lg:px-12 ">
-        <div className="flex justify-center sm:gap-1 gap-4  items-center flex-col relative">
+        <div className="flex justify-center sm:gap-1 gap-4  items-center flex-col ">
           <motion.h1
             variants={textVariant(0.6)}
             className="sm:text-[30px] text-[18px] text-white"
