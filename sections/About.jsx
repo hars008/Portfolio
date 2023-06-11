@@ -5,6 +5,7 @@ import { TypingText } from "../components";
 
 import styles from "../styles";
 import { fadeIn, staggerContainer } from "../utils/motion";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const About = () => (
   <section id="about" className={`${styles.paddings} relative z-10`}>
@@ -53,16 +54,17 @@ const About = () => (
         Thriving in challenging environments, I approach projects with
         dedication and enthusiasm. Eager to contribute to innovative software
         development, I bring dedication, motivation, and exceptional results.
-        Let's <span className="font-extrabold text-white">explore</span> more by
-        scrolling down.
+        To <span className="font-extrabold text-white">explore</span> my projects, scroll down.
       </motion.p>
 
-      <motion.img
-        variants={fadeIn("up", "tween", 0.3, 1)}
-        src="/arrow-down.svg"
-        alt="arrow down"
-        className="w-[18px] h-[28px] object-contain mt-[28px]"
-      />
+      <AnchorLink href="#projects">
+        <motion.img
+          variants={fadeIn("up", "tween", 0.3, 1)}
+          src="/arrow-down.svg"
+          alt="arrow down"
+          className="w-[38px] h-[38px] object-contain mt-[28px] cursor-pointer hover:scale-120 border rounded-full p-2 animate-bounce transition duration-200"
+        />
+      </AnchorLink>
     </motion.div>
   </section>
 );

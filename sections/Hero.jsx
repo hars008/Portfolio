@@ -7,7 +7,7 @@ import Type from "../components/TypeWrit";
 import { fadeIn, slideIn, staggerContainer, textVariant } from "../utils/motion";
 import Particle from "../components/Particle";
 const Hero = () => (
-  <section className={`${styles.yPaddings} sm:pl-16 pl-6 my-32 `}>
+  <section className={`${styles.yPaddings} sm:pl-16 pl-6 mb-32 `}>
     <Particle />
     <motion.div
       variants={staggerContainer}
