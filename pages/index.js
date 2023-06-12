@@ -9,7 +9,7 @@ import {
   Hero,
   ExtraProjects,
   Skills,
-  Contact
+  Contact,
 } from "../sections";
 
 const Home = () => (
