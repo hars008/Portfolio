@@ -8,6 +8,12 @@
   box-sizing: border-box;
   font-family: "Eudoxus Sans", sans-serif;
   scroll-behavior: smooth;
+  ;
+}
+
+body {
+  background: #050d20;
+  color: #fff;
 }
 
 .gradient-01 {
