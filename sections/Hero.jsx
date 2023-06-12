@@ -62,9 +62,9 @@ const Hero = () => (
         whileInView={"show"}
         exit={{ opacity: 0 }}
         variants={fadeIn("right", "tween", 1.0, 1)}
-        className="relative w-full md:-mt-[20px] -mt-[12px]"
+        className=" w-full md:-mt-[20px] -mt-[12px]"
       >
-        <AnchorLink href="#about">
+        <AnchorLink href="#about" className="w-fit ">
           <h2 className="text-[20px] text-white flex gap-2 text-center mx-auto w-fit mt-32 animate-bounce">
             Scroll Down
             <svg

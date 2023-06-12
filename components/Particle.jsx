@@ -123,11 +123,11 @@ const Particle = () => {
   };
 
   return (
-    <div className=" w-full  rounded-tl-[140px] overflow-hidden">
+    <div className=" w-full  overflow-hidden">
       <Particles
         init={particlesInit}
         options={options}
-        className="h-[750px] absolute left-0 top-0 w-full rounded-t-[140px] z-[0] -top-[0] "
+        className="h-screen absolute left-0 top-0 w-full rounded-t-[140px] z-[0] -top-[0] "
       />
     </div>
   );

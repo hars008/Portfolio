@@ -4,11 +4,12 @@ import { Footer, Navbar } from "../components";
 import Sidebar from "../components/Sidebar";
 import {
   About,
-  Explore,
-  GetStarted,
+  Catalog,
+  MyProjects,
   Hero,
-  Insights,
+  ExtraProjects,
   Skills,
+  Contact
 } from "../sections";
 
 const Home = () => (
@@ -21,19 +22,17 @@ const Home = () => (
       <FloatButton.BackTop className="bg-white hover:scale-110 transition duration-200 " />
       <div className="gradient-03 z-0" />
       <Skills />
-      <Explore />
+      <Catalog />
     </div>
     <div className="relative">
-      <GetStarted />
+      <MyProjects />
       <div className="gradient-04 z-0" />
-      {/* <WhatsNew /> */}
     </div>
-    {/* <World /> */}
     <div className="relative">
-      <Insights />
+      <ExtraProjects />
       <div className="gradient-04 z-0" />
-      {/* <Feedback /> */}
     </div>
+    <Contact />
     <Footer />
   </div>
 );

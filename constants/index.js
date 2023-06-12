@@ -1,3 +1,31 @@
+import { AiFillHtml5 } from "react-icons/ai";
+import { DiCss3 } from "react-icons/di";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiTailwindcss,
+  SiMongodb,
+  SiExpress,
+  SiNextdotjs,
+  SiMysql,
+  SiPython,
+  SiCplusplus,
+  SiSocketdotio,
+  SiGit,
+  SiBootstrap,
+  SiVisualstudiocode,
+  SiPostman,
+  SiNetlify,
+  SiVercel,
+  SiGithub,
+  SiFigma,
+  SiUbuntu,
+} from "react-icons/si";
+import { FaNode, FaJava } from "react-icons/fa";
+import { GiMongolia } from "react-icons/gi";
+import { motion } from "framer-motion";
+
 export const exploreWorlds = [
   {
     id: "#proj-1",
@@ -26,48 +54,6 @@ export const exploreWorlds = [
   },
 ];
 
-export const startingFeatures = [
-  "Find a world that suits you and you want to enter",
-  "Enter the world by reading basmalah to be safe",
-  "No need to beat around the bush, just stay on the gas and have fun",
-];
-
-export const newFeatures = [
-  {
-    imgUrl: "/vrpano.svg",
-    title: "A new world",
-    subtitle:
-      "we have the latest update with new world for you to try never mind",
-  },
-  {
-    imgUrl: "/headset.svg",
-    title: "More realistic",
-    subtitle:
-      "In the latest update, your eyes are narrow, making the world more realistic than ever",
-  },
-];
-
-export const insights = [
-  {
-    imgUrl: "/planet-06.png",
-    title: "The launch of the Metaverse makes Elon musk ketar-ketir",
-    subtitle:
-      "Magna etiam tempor orci eu lobortis elementum nibh tellus molestie. Diam maecenas sed enim ut sem viverra alique.",
-  },
-  {
-    imgUrl: "/planet-07.png",
-    title: "7 tips to easily master the madness of the Metaverse",
-    subtitle:
-      "Vitae congue eu consequat ac felis donec. Et magnis dis parturient montes nascetur ridiculus mus. Convallis tellus id interdum",
-  },
-  {
-    imgUrl: "/planet-08.png",
-    title: "With one platform you can explore the whole world virtually",
-    subtitle:
-      "Quam quisque id diam vel quam elementum. Viverra nam libero justo laoreet sit amet cursus sit. Mauris in aliquam sem",
-  },
-];
-
 export const socials = [
   {
     name: "twitter",
@@ -88,5 +74,111 @@ export const socials = [
     name: "github",
     url: "/github2.png",
     link: "https://github.com/hars008",
+  },
+];
+
+export const technologies = [
+  {
+    name: "HTML",
+    icon: AiFillHtml5,
+  },
+  {
+    name: "CSS",
+    icon: DiCss3,
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+  },
+  {
+    name: "React JS",
+    icon: SiReact,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+  },
+  {
+    name: "Node JS",
+    icon: FaNode,
+  },
+  {
+    name: "Express JS",
+    icon: SiExpress,
+  },
+  {
+    name: "MongoDB",
+    icon: SiMongodb,
+  },
+  {
+    name: "Next JS",
+    icon: SiNextdotjs,
+  },
+  {
+    name: "SQL",
+    icon: SiMysql,
+  },
+  {
+    name: "Python",
+    icon: SiPython,
+  },
+  {
+    name: "C++",
+    icon: SiCplusplus,
+  },
+  {
+    name: "Java",
+    icon: FaJava,
+  },
+  {
+    name: "Web Sockets",
+    icon: SiSocketdotio,
+  },
+  {
+    name: "Git",
+    icon: SiGit,
+  },
+  {
+    name: "Bootstrap",
+    icon: SiBootstrap,
+  },
+];
+
+export const toolsUsed = [
+  {
+    name: "VS Code",
+    icon: SiVisualstudiocode,
+  },
+  {
+    name: "Postman",
+    icon: SiPostman,
+  },
+  {
+    name: "MongoDB Atlas",
+    icon: GiMongolia,
+  },
+  {
+    name: "Netlify",
+    icon: SiNetlify,
+  },
+  {
+    name: "Vercel",
+    icon: SiVercel,
+  },
+  {
+    name: "Github",
+    icon: SiGithub,
+  },
+  {
+    name: "Figma",
+    icon: SiFigma,
+  },
+  {
+    name: "Ubuntu",
+    icon: SiUbuntu,
   },
 ];

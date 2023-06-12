@@ -4,7 +4,7 @@ import BriefProjOne from "../components/BriefProjOne";
 import BriefProjTwo from "../components/BriefProjTwo";
 import LineAnim from "../components/LineAnim";
 
-const GetStarted = () => {
+const MyProjects = () => {
   const bookingFeatures = [
     "Tools & technologies used: ViteJS, ReactJS, NodeJs, ExpressJs, MongoDB, TailWind CSS",
     "Full-stack web app having authorization/registration, and booking API, wrapped in a responsive frontend.",
@@ -42,9 +42,7 @@ const GetStarted = () => {
           },
         ]}
       />
-
       <LineAnim />
-
       <BriefProjOne
         projTitle="Data Visualization"
         featuresPoints={visualizationFeatures}
@@ -63,9 +61,7 @@ const GetStarted = () => {
           },
         ]}
       />
-
       <LineAnim />
-
       <BriefProjTwo
         projTitle="Stone Paper Scissors Game"
         featuresPoints={stoneFeatures}
@@ -84,9 +80,7 @@ const GetStarted = () => {
           },
         ]}
       />
-
       <LineAnim />
-
       <BriefProjOne
         projTitle="Solridee - Solution to your ride"
         featuresPoints={solrideeFeatures}
@@ -100,9 +94,7 @@ const GetStarted = () => {
           },
         ]}
       />
-
       <LineAnim />
-
       <BriefProjTwo
         projTitle="Moviesverse - Movie App"
         featuresPoints={moviesFeatures}
@@ -116,10 +108,9 @@ const GetStarted = () => {
           },
         ]}
       />
-
       <LineAnim />
     </>
   );
 };
 
-export default GetStarted;
+export default MyProjects;

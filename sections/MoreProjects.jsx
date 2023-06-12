@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 import styles from "../styles";
 import { staggerContainer } from "../utils/motion";
-import { InsightCard, TitleText, TypingText } from "../components";
+import { MoreProjCard, TypingText } from "../components";
 
-const Insights = () => {
-  const insights = [
+const ExtraProjects= () => {
+  const projects = [
     {
       imgUrl: "/BankofBaroda.png",
       title: "Bank of Baroda - Virtual Branch",
@@ -50,10 +50,9 @@ const Insights = () => {
         className={`${styles.innerWidth} mx-auto flex flex-col`}
       >
         <TypingText title="| Some More Projects" textStyles="text-center" />
-        {/* <TitleText title={<>Small Projects</>} textStyles="text-center" /> */}
         <div className="mt-[50px] flex flex-col gap-[30px]">
-          {insights.map((item, index) => (
-            <InsightCard key={`insight-${index}`} {...item} index={index + 1} />
+          {projects.map((item, index) => (
+            <MoreProjCard key={`insight-${index}`} {...item} index={index + 1} />
           ))}
         </div>
       </motion.div>
@@ -61,4 +60,4 @@ const Insights = () => {
   );
 };
 
-export default Insights;
+export default ExtraProjects;

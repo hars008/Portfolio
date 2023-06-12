@@ -5,7 +5,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import styles from "../styles";
 import { fadeIn } from "../utils/motion";
 
-const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => (
+const CatalogCard = ({ id, imgUrl, title, index, active, handleClick }) => (
   <motion.div
     variants={fadeIn("right", "spring", index * 0.5, 0.75)}
     className={`relative ${
@@ -51,4 +51,4 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => (
   </motion.div>
 );
 
-export default ExploreCard;
+export default CatalogCard;
