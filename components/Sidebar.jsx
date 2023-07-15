@@ -24,7 +24,7 @@ const Sidebar = () => (
           <img
             src={social.url}
             alt={social.name}
-            className="w-[24px] h-[24px] hover:scale-105 transition duration-200 object-contain cursor-pointer"
+            className="w-[24px] h-[24px] hover:scale-[1.2] hover:shadow-white-2xl transition duration-200 ease-in-out object-contain cursor-pointer"
           />
         </a>
       ))}
