@@ -55,25 +55,40 @@ export const exploreWorlds = [
 ];
 
 export const socials = [
-  {
-    name: "twitter",
-    url: "/twitter.svg",
-    link: "https://twitter.com/Harshba11242803",
-  },
+  // {
+  //   name: "twitter",
+  //   url: "/twitter.svg",
+  //   link: "https://twitter.com/Harshba11242803",
+  // },
   {
     name: "linkedin",
-    url: "/linkedin.svg",
+    url: "/linkedin.png",
     link: "https://www.linkedin.com/in/harsh-bansal--/",
   },
   {
     name: "instagram",
-    url: "/instagram.svg",
+    url: "/instagram.png",
     link: "https://www.instagram.com/harshbansal943/",
   },
   {
     name: "github",
     url: "/github2.png",
     link: "https://github.com/hars008",
+  },
+  {
+    name: "leetcode",
+    url: "/leetcode.png",
+    link: "https://leetcode.com/harshbansal699/",
+  },
+  {
+    name: "codeforces",
+    url: "/codeforces.png",
+    link: "https://codeforces.com/profile/hars699",
+  },
+  {
+    name: "codechef",
+    url: "/codechef.png",
+    link: "https://www.codechef.com/users/hars99",
   },
 ];
 
