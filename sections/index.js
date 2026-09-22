@@ -1,17 +1,19 @@
 import Hero from './Hero';
 import About from './About';
-import Catalog from './Catalog';
-import MyProjects from './MyProjects';
-import ExtraProjects from './MoreProjects';
+import Experience from './Experience';
 import Skills from './Skills';
+import Projects from './Projects';
+import MoreProjects from './MoreProjects';
+import Achievements from './Achievements';
 import Contact from './Contact';
 
 export {
   Hero,
   About,
-  Catalog,
-  MyProjects,
-  ExtraProjects,
+  Experience,
   Skills,
+  Projects,
+  MoreProjects,
+  Achievements,
   Contact,
 };

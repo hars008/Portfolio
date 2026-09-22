@@ -1,137 +1,229 @@
-"use client";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { AnimatePresence, m } from 'framer-motion';
+import profile from '../content/profile';
+import MagneticButton from './MagneticButton';
+import Logo from './Logo';
+import { useActiveSection } from '../utils/useActiveSection';
+import { drawerPanel, scrim } from '../utils/motion';
 
-import React, { useState } from "react";
-import { MenuOutlined, CloseCircleTwoTone } from "@ant-design/icons";
-import { Button, Drawer } from "antd";
-import Image from "next/image";
-import AnchorLink from "react-anchor-link-smooth-scroll";
-import { motion } from "framer-motion";
-import styles from "../styles";
-import { navVariants } from "../utils/motion";
+const LINKS = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
 
-const Navbar = () => {
-  const [visible, setVisible] = useState(false);
-  const showDrawer = () => {
-    setVisible(true);
-  };
-  const onClose = () => {
-    setVisible(false);
-  };
+const SECTION_IDS = LINKS.map((l) => l.href.slice(1));
+
+const Navbar = ({ standalone = false }) => {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const sentinel = useRef(null);
+  const active = useActiveSection(standalone ? [] : SECTION_IDS);
+
+  /**
+   * A 1px sentinel observed at the top of the page, rather than a scroll
+   * listener. Same result, no per-frame handler — and it leaves the site with
+   * zero scroll listeners outside the progress bar's useScroll.
+   */
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el) return undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const close = useCallback(() => setOpen(false), []);
+
+  // Escape to dismiss, and lock the page behind the open drawer.
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+    };
+    document.addEventListener('keydown', onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [open, close]);
+
   return (
-    <motion.nav
-      variants={navVariants}
-      initial="hidden"
-      whileInView="show"
-      id="home"
-      className={`${styles.xPaddings} py-4 relative bg-black bg-opacity-20 w-full fixed top-0 z-50`}
-    >
-      <div className="absolute  w-fit inset-0 gradient-01" />
-      <div
-        className={`${styles.innerWidth} mx-auto flex justify-between sm:gap-8 gap-4`}
+    <>
+      <div ref={sentinel} aria-hidden="true" className="absolute left-0 top-0 h-px w-px" />
+
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          scrolled || open
+            ? 'border-b border-line bg-bg/[0.85] backdrop-blur-md'
+            : 'border-b border-transparent'
+        }`}
       >
-        <Image
-          src="/logo.png"
-          alt="logo"
-          className="w-[50px] h-[40px]"
-          width={50}
-          height={40}
-          priority
-        />
-
-        <div className=" sm:flex sm:gap-6 hidden gap-2 lg:gap-32 text-[16px] leading-[45.24px] text-white">
-          <AnchorLink href="#about">
-            <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
-              {" "}
-              About
-            </h3>
-          </AnchorLink>
-          <AnchorLink href="#projects">
-            <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
-              {" "}
-              Projects
-            </h3>
-          </AnchorLink>
-          <AnchorLink href="#contact">
-            <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
-              {" "}
-              Contact
-            </h3>
-          </AnchorLink>
-        </div>
-        <button
-          type="button"
-          className="bg-blue-500 p-2 hidden sm:flex rounded-lg hover:scale-110 transition duration-300 ease-in-out text-white"
-          onClick={() => {
-            window.open(
-              "https://drive.google.com/file/d/1bVgUu1P8GKjGiVTII8TbEWZFa4a6ORb2/view?usp=share_link",
-            );
-          }}
+        <nav
+          aria-label="Primary"
+          className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-6 sm:px-10"
         >
-          Resume
-        </button>
-        <div className="sm:hidden">
-          <Button
-            type="primary"
-            onClick={showDrawer}
-            className="bg-blue-500 rounded-lg hover:scale-110 transition duration-300 ease-in-out text-white"
+          <Link
+            href="/"
+            aria-label="harsh.dev — home"
+            className="group flex items-center gap-2.5 font-mono text-sm font-medium tracking-tight text-body"
           >
-            <MenuOutlined style={{ fontSize: "19px" }} />
-          </Button>
-          <Drawer
-            title="Menu"
-            placement="right"
-            closable
-            onClose={onClose}
-            closeIcon={(
-              <CloseCircleTwoTone
-                style={{ fontSize: "26px", color: "#08c" }}
-                className="hover:scale-[1.3] transition duration-200"
-              />
-            )}
-            open={visible}
-            className="text-center  text-white opacity-90 !bg-gradient-to-r !to-black !from-zinc-900 "
-            headerStyle={{
-              color: "white",
-              fontWeight: "bold",
-            }}
-          >
-            <div className=" flex flex-col sm:gap-6 gap-2 lg:gap-32 text-[16px] leading-[45.24px] text-white ">
-              <AnchorLink onClick={onClose} href="#about">
-                <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
-                  {" "}
-                  About
-                </h3>
-              </AnchorLink>
-              <AnchorLink onClick={onClose} href="#projects">
-                <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
-                  {" "}
-                  Projects
-                </h3>
-              </AnchorLink>
-              <AnchorLink onClick={onClose} href="#contact">
-                <h3 className="hover:font-extrabold hover:drop-shadow-xl transition duration-300 cursor-pointer">
-                  {" "}
-                  Contact
-                </h3>
-              </AnchorLink>
+            <Logo size={28} animated />
+            <span>
+              harsh<span className="text-mute transition-colors duration-300 group-hover:text-accent">.dev</span>
+            </span>
+          </Link>
 
-              <button
-                type="button"
-                className="bg-blue-500 p-2 w-fit m-auto px-10 mt-4 rounded-lg hover:scale-110 transition duration-300 ease-in-out text-white"
-                onClick={() => {
-                  setVisible(false);
-                  window.open(
-                    "https://drive.google.com/file/d/1bVgUu1P8GKjGiVTII8TbEWZFa4a6ORb2/view?usp=share_link",
-                  );
-                }}
+          <div className="hidden items-center gap-8 md:flex">
+            {!standalone
+              && LINKS.map((link) => {
+                const on = active === link.href.slice(1);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    /* The active section used to be signalled by colour alone.
+                       aria-current fixes that for assistive tech, and the
+                       underline below makes it visible without colour too. */
+                    aria-current={on ? 'true' : undefined}
+                    className={`relative text-sm transition-colors duration-200 ${
+                      on ? 'text-accent' : 'text-dim hover:text-body'
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -bottom-1.5 left-0 h-px w-full origin-left bg-grad-accent transition-transform duration-300 ease-out-flex ${
+                        on ? 'scale-x-100' : 'scale-x-0'
+                      }`}
+                    />
+                  </a>
+                );
+              })}
+            {standalone && (
+              <Link href="/" className="link-underline text-sm text-dim">
+                ← Back to portfolio
+              </Link>
+            )}
+            <MagneticButton>
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn btn-ghost px-3.5 py-1.5"
               >
-                Resume
-              </button>
-            </div>
-          </Drawer>
-        </div>
-      </div>
-    </motion.nav>
+                Résumé
+              </a>
+            </MagneticButton>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            className="flex h-9 w-9 items-center justify-center rounded-md border border-line text-body md:hidden"
+          >
+            <span className="relative block h-3 w-4" aria-hidden="true">
+              <span
+                className={`absolute left-0 block h-px w-4 bg-current transition-transform duration-200 ${
+                  open ? 'top-1.5 rotate-45' : 'top-0'
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-1.5 block h-px w-4 bg-current transition-opacity duration-200 ${
+                  open ? 'opacity-0' : 'opacity-100'
+                }`}
+              />
+              <span
+                className={`absolute left-0 block h-px w-4 bg-current transition-transform duration-200 ${
+                  open ? 'top-1.5 -rotate-45' : 'top-3'
+                }`}
+              />
+            </span>
+          </button>
+        </nav>
+
+        {/* The drawer used to unmount instantly with no exit animation. Only
+            opacity and y animate — never height, which would be layout work on
+            every frame. The scrim is a real button, not a div with onClick. */}
+        <AnimatePresence>
+          {open && (
+            <>
+              {/* Mouse affordance only: the toggle above is already named
+                  "Close menu" and Escape closes too, so exposing this as a
+                  second identically-named button just duplicates it in the
+                  accessibility tree and the tab order. */}
+              <m.button
+                key="scrim"
+                type="button"
+                aria-hidden="true"
+                tabIndex={-1}
+                aria-label="Close menu"
+                onClick={close}
+                variants={scrim}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="fixed inset-0 top-16 -z-10 h-full w-full cursor-default bg-bg/70 md:hidden"
+              />
+              <m.div
+                key="drawer"
+                id="mobile-menu"
+                variants={drawerPanel}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="border-t border-line bg-bg px-6 pb-6 pt-2 md:hidden"
+              >
+                <ul className="flex flex-col">
+                  {!standalone
+                    && LINKS.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          onClick={close}
+                          className="block border-b border-line py-3 text-base text-dim transition-colors hover:text-body"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  {standalone && (
+                    <li>
+                      <Link
+                        href="/"
+                        onClick={close}
+                        className="block border-b border-line py-3 text-base text-dim"
+                      >
+                        ← Back to portfolio
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={close}
+                  className="btn btn-ghost mt-5 w-full"
+                >
+                  Download Résumé
+                </a>
+              </m.div>
+            </>
+          )}
+        </AnimatePresence>
+      </header>
+    </>
   );
 };
 

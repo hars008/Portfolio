@@ -1,34 +1,55 @@
-"use client";
+import React from 'react';
+import { m } from 'framer-motion';
+import SocialLinks from './SocialLinks';
+import profile from '../content/profile';
+import { drawY, fadeUp, stagger } from '../utils/motion';
 
-import React from "react";
-import { motion } from "framer-motion";
-import { socials } from "../constants";
-import { navVariants } from "../utils/motion";
-
+/**
+ * Fixed rails, desktop only. The mobile equivalents live in Contact and Footer.
+ *
+ * They arrive about a second after load, deliberately behind the hero: these
+ * are chrome, and chrome that competes with the headline for attention on
+ * first paint is chrome in the wrong place.
+ */
 const Sidebar = () => (
-  <motion.nav
-    variants={navVariants}
-    initial="hidden"
-    whileInView="show"
-    className="px-3 py-8 h-full hidden sm:block fixed top-0 z-50"
-  >
-    <div className="  w-fit  inset-0 gradient-01 " />
-    <div className="w-full h-full flex  flex-col justify-center  gap-8">
-      {socials.map((social) => (
-        <a
-          href={social.link}
-          target="_blank"
-          key={social.name}
-          rel="noreferrer"
-        >
-          <img
-            src={social.url}
-            alt={social.name}
-            className="w-[24px] h-[24px] hover:scale-[1.2] hover:shadow-white-2xl transition duration-200 ease-in-out object-contain cursor-pointer"
-          />
-        </a>
-      ))}
-    </div>
-  </motion.nav>
+  <>
+    <m.div
+      initial="hidden"
+      animate="show"
+      variants={stagger(0.08, 1.1)}
+      className="fixed bottom-0 left-8 z-40 hidden flex-col items-center gap-6 lg:flex"
+    >
+      <m.div variants={fadeUp()}>
+        <SocialLinks className="!flex-col !gap-5" size={17} />
+      </m.div>
+      <m.span
+        aria-hidden="true"
+        variants={drawY()}
+        className="h-24 w-px origin-bottom bg-line-strong"
+      />
+    </m.div>
+
+    <m.div
+      initial="hidden"
+      animate="show"
+      variants={stagger(0.08, 1.2)}
+      className="fixed bottom-0 right-8 z-40 hidden flex-col items-center gap-6 lg:flex"
+    >
+      <m.a
+        variants={fadeUp()}
+        href={`mailto:${profile.email}`}
+        className="link-underline link-underline-vertical font-mono text-xs tracking-widest text-mute"
+        style={{ writingMode: 'vertical-rl' }}
+      >
+        {profile.email}
+      </m.a>
+      <m.span
+        aria-hidden="true"
+        variants={drawY()}
+        className="h-24 w-px origin-bottom bg-line-strong"
+      />
+    </m.div>
+  </>
 );
+
 export default Sidebar;

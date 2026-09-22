@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harsh-bansal.netlify.app/sitemap.xml

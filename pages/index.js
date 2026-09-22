@@ -1,40 +1,49 @@
-import React from "react";
-import { FloatButton } from "antd";
-import { Footer, Navbar } from "../components";
-import Sidebar from "../components/Sidebar";
+import React from 'react';
+import { useRebootKey } from '../utils/intro';
+import { Navbar, Sidebar, Footer, SEO, Intro, AmbientIcons } from '../components';
 import {
-  About,
-  Catalog,
-  MyProjects,
   Hero,
-  ExtraProjects,
+  About,
+  Experience,
   Skills,
+  Projects,
+  MoreProjects,
+  Achievements,
   Contact,
-} from "../sections";
+} from '../sections';
 
-const Home = () => (
-  <div className="bg-primary-black overflow-hidden">
-    <Navbar />
-    <Sidebar />
-    <Hero />
-    <div className="relative">
-      <About />
-      <FloatButton.BackTop className="bg-white hover:scale-110 transition duration-200 " />
-      <div className="gradient-03 z-0" />
-      <Skills />
-      <Catalog />
-    </div>
-    <div className="relative">
-      <MyProjects />
-      <div className="gradient-04 z-0" />
-    </div>
-    <div className="relative">
-      <ExtraProjects />
-      <div className="gradient-04 z-0" />
-    </div>
-    <Contact />
-    <Footer />
-  </div>
-);
+const Home = () => {
+  // Bumped by the reboot buttons, so the hero remounts and replays its
+  // entrance behind the replayed intro.
+  const rebootKey = useRebootKey();
+
+  return (
+    <>
+      <SEO />
+      <Intro />
+      {/* Keyed with the hero so a reboot replays the tiles' pop-in too. */}
+      <AmbientIcons key={`ambient-${rebootKey}`} />
+      <a
+        href="#main"
+        className="sr-only rounded-md bg-accent px-4 py-2 text-sm font-medium text-bg focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"
+      >
+        Skip to content
+      </a>
+      <Navbar />
+      <Sidebar />
+      <main id="main" className="lg:px-12">
+        <Hero key={rebootKey} />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <MoreProjects />
+        <Achievements />
+        <Contact />
+      </main>
+      <Footer home />
+    </>
+  );
+};
 
 export default Home;

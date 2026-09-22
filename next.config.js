@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: false,
-  },
+  reactStrictMode: true,
+  // Drops the `X-Powered-By: Next.js` header — no reason to advertise the stack.
+  poweredByHeader: false,
 };
 
 module.exports = nextConfig;
